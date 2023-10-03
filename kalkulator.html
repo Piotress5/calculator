@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Kalkulator</title>
+</head>
+<body>
+  <header>
+    <h1>Kalkulator</h1>
+  </header>
+  <div class="space"></div>
+  <div class="aplikacja">
+    <div class="centering">
+      <div class="grid-container">
+        <div class="grid-item item0">
+          <div class="operacja2">0</div>
+          <div class="operacja1">0</div>
+        </div> <!--tabindex="-1" -->
+        <button class="grid-item memory">Memory</button>
+        <button class="grid-item allclear">AC</button>
+        <button class="grid-item backspace">DEL</button>
+        <button class="grid-item number" value="%">%</button>
+        <button class="grid-item operator" value="√">√</button>
+        <button class="grid-item operator" value="^">^</button>
+        <button class="grid-item operator" value="÷">÷</button>
+        <button class="grid-item number" value="7">7</button>
+        <button class="grid-item number" value="8">8</button>
+        <button class="grid-item number" value="9">9</button>
+        <button class="grid-item operator" value="*">*</button>
+        <button class="grid-item number" value="4">4</button>
+        <button class="grid-item number" value="5">5</button>
+        <button class="grid-item number" value="6">6</button>
+        <button class="grid-item operator" value="-">-</button>
+        <button class="grid-item number" value="1">1</button>
+        <button class="grid-item number" value="2">2</button>
+        <button class="grid-item number" value="3">3</button>
+        <button class="grid-item operator" value="+">+</button>
+        <button class="grid-item number" value="neg">+/-</button>
+        <button class="grid-item number" value=".">.</button>
+        <button class="grid-item number" value="0">0</button>
+        <button class="grid-item oblicz" value="=">=</button>
+      </div>
+      <div class="pamiec-container">
+        <h2>Pamięć</h2>
+        <div class="workspace">
+          <p class="schowek">0</p>
+        </div>
+        <div class="mem-manag">
+          <button class="zapisz">Save</button>
+          <button class="wczytaj">Load</button>
+          <button class="dodaj">+</button>
+          <button class="odejmij">-</button>
+          <button class="mem-reset">Reset</button>
+        </div>
+        <h2>Historia działań</h2>
+        <div class="workspace historia">
+          <p class="dzialania">Brak&nbsp;ostatnich&nbsp;działań </p>
+        </div>
+        <button class="his-reset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="space"></div>
+  <footer>
+    <p class="info"><em>Copyright 2023 © Piotr Cieśla</em></p>
+  </footer>
+</body>
+</html>
