@@ -14,6 +14,74 @@ header {
     text-shadow: 2px 2px 4px black;
 }
 
+div.style {
+    background-color: #e0e0e0;
+    color: white;
+}
+
+div.languages {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
+
+div.style-wybor, div.style-zaslona, div.languages-wybor {
+    background: black;
+    display: flex;
+    position: absolute;
+}
+
+div.style-wybor, div.style-zaslona {
+    justify-content: flex-start;
+    width: 6.5em;
+    padding: 0.4em 0.4em 0.6em 0.4em;
+    border-bottom-right-radius: 1em;
+}
+
+div.style-zaslona {
+    background: black;
+    justify-content: center;
+    padding: 0.6em 0.4em 0.9em 0.4em;
+    border-bottom-right-radius: 1em;
+    font-weight: bold;
+    text-shadow: -1px 0 2px #3d3dff, 0 1px 2px #3d3dff, 
+                 1px 0 2px #3d3dff, 0 -1px 2px #3d3dff;
+    transition: 1s;
+}
+
+div.style-zaslona-none {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.style-wybor button {
+    padding: 0.8em;
+    margin: 2px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+.style-wybor button:active {border: 1px solid white;}
+.style-wybor button.styl1 { background-color: #888888;}
+.style-wybor button.styl2 { background-color: #d2d2d2;}
+.style-wybor button.styl3 { background-color: #1c1c1c;}
+
+div.languages-wybor {
+    border-top-left-radius: 1em;
+    width: 6em;
+    padding: 0.6em 0.4em 0.3em 0.4em;
+}
+
+.languages-wybor img {
+    cursor: pointer;
+    margin-left: 7px;
+    filter: blur(0.5px);
+    opacity: 0.9;
+    border: 1px solid transparent;
+}
+
+.languages-wybor img:active {border: 1px solid white;}
+
 div.space {
     background-color: black;
     height: 1em;
@@ -29,7 +97,6 @@ div.aplikacja {
 
 div.centering {
     height: 70vh;
-    background-color: #e0e0e0;
     display: flex;
     flex-flow: row-reverse;
     justify-content: center;
@@ -45,7 +112,28 @@ footer {
     margin: 0;
     height: 10vh;
     text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    align-items: center;
 }
+
+div.stopka img {
+    width: 40px;
+    height: 40px;
+    float: right;
+    border-radius: 50%;
+    background: radial-gradient(closest-corner at 50% 55%,
+    transparent 20px, #3d3dff 10px);
+    transition: 0.5s;
+}
+
+div.stopka img:hover {
+    background: radial-gradient(closest-corner at 50% 55%,
+    black 20px, #3d3dff 10px);
+    box-shadow: 0 0 20px 5px black;
+}
+
 /* główne ustawienia ^ */
 
 div.grid-container {
@@ -69,12 +157,9 @@ div.pamiec-container h2 {
 }
 
 div.grid-container, div.pamiec-container {
-    /* border: 2px solid black; */
-    /* background-color: #555; */
     border: 0.75em solid transparent;
     background: linear-gradient(to bottom left, #777, #555) padding-box,   /*wnętrze*/
                 linear-gradient(to top left, #606060, #777) border-box;  /*ramka*/
-    /* background: linear-gradient(to bottom, #666, #555); */
     gap: 0.5vw;
     border-radius: 40px;
     min-height: fit-content;
@@ -100,11 +185,8 @@ button.grid-item {
     text-align: center;
     height: 5em;
     width: 5em;
-    background: linear-gradient(to top right, #777, #999) padding-box,   /*wnętrze*/
-                linear-gradient(to bottom left, #aaa, #777) border-box;  /*ramka*/
     border-radius: 20px;
     border: 4px solid transparent;
-    /* color: white; */
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -112,16 +194,20 @@ button.grid-item {
     max-width: 5vw;
     max-height: 8vh;
     font-size: 1.25em;
-    /* font-weight: bold; */
     box-shadow: 6px 6px 3px #333;
 }
 
-button.grid-item:hover {
+.grid-container button {
+    background: linear-gradient(to top right, #777, #999) padding-box,   /*wnętrze*/
+                linear-gradient(to bottom left, #aaa, #777) border-box;  /*ramka*/
+}
+
+.grid-container button:hover {
     background: linear-gradient(to top left, #777, #999) padding-box,
                 linear-gradient(to bottom left, #aaa, #777) border-box;
 }
 
-button.grid-item:active {
+.grid-container button:active {
     box-shadow: 2px 2px 3px #333;
     color: white;
     background: linear-gradient(to top, #999, #777) padding-box,
@@ -135,8 +221,6 @@ button.memory {
 }
 
 button.operator, button[value="%"] {
-    /* color: white; */
-    /* font-weight: bold; */
     background: linear-gradient(to top right, #999, #aaa) padding-box, 
                 linear-gradient(to bottom left, #bbb, #999) border-box;
 }
@@ -195,6 +279,17 @@ div.item0:hover {
     background: #ddd;
     color: black;
 }
+/* Easter Egg */
+/* div.item0:active {
+    animation: blink 0.5s;
+    overflow: hidden;
+}
+
+@keyframes blink {
+    0% {border-top: 0px solid black;}
+    50% {border-top: 7vh solid black;}
+    100% {border-top: 0px solid black;}
+} */
 
 div.operacja2 {
     font-size: 0.7em;
@@ -205,16 +300,16 @@ div.operacja1 {
     height: 55%;
     font-size: 1.5em;
 }
-
+/* tu zmieniac widocznosc panelu bocznego */
 div.pamiec-container {
-    display: none;
+    display: flex;
     flex-direction: column;
     max-width: 55%;
 }
 
-div.pamiec-container button {
-    background: linear-gradient(to top right, #777, #999) padding-box,   /*wnętrze*/
-                linear-gradient(to bottom left, #aaa, #777) border-box;  /*ramka*/
+.pamiec-container button {
+    background: linear-gradient(to top right, #777, #999) padding-box,
+                linear-gradient(to bottom left, #aaa, #777) border-box;
     border-radius: 20px;
     border: 4px solid transparent;
     cursor: pointer;
@@ -270,6 +365,111 @@ div.mem-manag {
     max-width: 15em;
 }
 
+/* Inne style */
+div.aplikacja2 { background: white;}
+div.grid-container2, div.pamiec-container2 {
+    background: linear-gradient(to bottom left, #d5d5d5, #b5b5b5) padding-box,   /*wnętrze*/
+                linear-gradient(to top left, #ccc, #d5d5d5) border-box;  /*ramka*/
+    box-shadow: 4px 4px 2px 4px #777;
+}
+div.grid-container2 button, div.pamiec-container2 button.his-reset, div.mem-manag2 button {
+    background: linear-gradient(to top right, #ddd, #c0c0c0) padding-box,   /*wnętrze*/
+                linear-gradient(to bottom left, #c0c0c0, #ddd) border-box;  /*ramka*/
+    box-shadow: 6px 6px 3px #777;
+}
+div.grid-container2 button:hover, div.pamiec-container2 button.his-reset:hover, div.mem-manag2 button:hover {
+    background: linear-gradient(to top left, #ddd, #c0c0c0) padding-box,
+                linear-gradient(to bottom left, #c0c0c0, #ddd) border-box;
+    box-shadow: 6px 6px 3px #777;
+}
+div.grid-container2 button:active, div.pamiec-container2 button.his-reset:active div.mem-manag2 button{
+    color: white;
+    background: linear-gradient(to top, #c0c0c0, #ddd) padding-box,
+    linear-gradient(to top, #ccc, #ccc) border-box;
+    box-shadow: 2px 2px 3px #777;
+}
+
+.grid-container2 button.operator, .grid-container2 button[value="%"] {
+    background: linear-gradient(to top right, #aaa, #bbb) padding-box, 
+                linear-gradient(to bottom left, #ccc, #aaa) border-box;
+}
+.grid-container2 button.operator:hover, .grid-container2 button[value="%"]:hover {
+    background: linear-gradient(to top left, #aaa, #bbb) padding-box, 
+                linear-gradient(to bottom left, #ccc, #aaa) border-box;
+}
+.grid-container2 button.operator:active, .grid-container2 button[value="%"]:active {
+    color: white;
+    background: linear-gradient(to top, #bbb, #aaa) padding-box,
+                linear-gradient(to top, #999, #999) border-box;
+}
+
+div.grid-container2 button:last-child {
+    color: white;
+    background: linear-gradient(to top right, #2b2bf8, #4b4bf8) padding-box, 
+                linear-gradient(to bottom left, #5b5bf8, #2b2bf8) border-box;
+}
+div.grid-container2 button:last-child:hover {
+    background: linear-gradient(to top left, #2b2bf8, #3b3bf8) padding-box, 
+                linear-gradient(to bottom left, #5b5bf8, #2b2bf8) border-box;
+}
+div.grid-container2 button:last-child:active {
+    color: black;
+    background: linear-gradient(to top, #2b2bf8, #4b4bf8) padding-box, 
+                linear-gradient(to top, #2b2bf8, #2b2bf8) border-box;
+}
+/* -------------------------------------------------------- */
+div.aplikacja3 { background: #333;}
+div.grid-container3, div.pamiec-container3 {
+    background: linear-gradient(to bottom left, #3b3b3b, #1b1b1b) padding-box,   /*wnętrze*/
+                linear-gradient(to top left, #333, #2b2b2b) border-box;  /*ramka*/
+    box-shadow: 4px 4px 2px 4px #222;
+}
+div.grid-container3 button, div.pamiec-container3 button.his-reset, div.mem-manag3 button {
+    color: white;
+    background: linear-gradient(to top right, #3b3b3b, #1b1b1b) padding-box,   /*wnętrze*/
+                linear-gradient(to bottom left, #333, #2b2b2b) border-box;  /*ramka*/
+    box-shadow: 6px 6px 3px #222;
+}
+div.grid-container3 button:hover, div.pamiec-container3 button.his-reset:hover, div.mem-manag3 button:hover {
+    background: linear-gradient(to top left, #3b3b3b, #1b1b1b) padding-box,
+                linear-gradient(to bottom left, #333, #2b2b2b) border-box;
+    box-shadow: 6px 6px 3px #222;
+}
+div.grid-container3 button:active, div.pamiec-container3 button.his-reset:active, div.mem-manag3 button:active{
+    color: gray;
+    background: linear-gradient(to top, #1b1b1b, #3b3b3b) padding-box,
+                linear-gradient(to top, #2b2b2b, #2b2b2b) border-box;
+    box-shadow: 2px 2px 3px #222;
+}
+
+.grid-container3 button.operator, .grid-container3 button[value="%"] {
+    background: linear-gradient(to top right, #2b2b2b, #3b3b3b) padding-box, 
+                linear-gradient(to bottom left, #4b4b4b, #2b2b2b) border-box;
+}
+.grid-container3 button.operator:hover, .grid-container3 button[value="%"]:hover {
+    background: linear-gradient(to top left, #2b2b2b, #3b3b3b) padding-box, 
+                linear-gradient(to bottom left, #4b4b4b, #2b2b2b) border-box;
+}
+.grid-container3 button.operator:active, .grid-container3 button[value="%"]:active {
+    color: gray;
+    background: linear-gradient(to top, #3b3b3b, #2b2b2b) padding-box,
+                linear-gradient(to top, #1b1b1b, #1b1b1b) border-box;
+}
+
+div.grid-container3 button:last-child {
+    color: white;
+    background: linear-gradient(to top right, #2b2bf8, #4b4bf8) padding-box, 
+                linear-gradient(to bottom left, #5b5bf8, #2b2bf8) border-box;
+}
+div.grid-container3 button:last-child:hover {
+    background: linear-gradient(to top left, #2b2bf8, #3b3bf8) padding-box, 
+                linear-gradient(to bottom left, #5b5bf8, #2b2bf8) border-box;
+}
+div.grid-container3 button:last-child:active {
+    color: black;
+    background: linear-gradient(to top, #2b2bf8, #4b4bf8) padding-box, 
+                linear-gradient(to top, #2b2bf8, #2b2bf8) border-box;
+}
 /* .not-working {
     background: red !important;
 } */

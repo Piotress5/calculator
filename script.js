@@ -7,7 +7,6 @@ const allclear = document.querySelector("button.allclear");
 const backspace = document.querySelector("button.backspace");
 const memory = document.querySelector("button.memory");
 const mem_manager = document.querySelector("div.pamiec-container");
-const historia = document.querySelector("div.historia");
 const his_reset = document.querySelector("button.his-reset");
 const zaladuj = document.querySelector("button.zapisz");
 const wczytaj = document.querySelector("button.wczytaj");
@@ -15,6 +14,21 @@ const mem_dodaj = document.querySelector("button.dodaj");
 const mem_odejmij = document.querySelector("button.odejmij");
 const mem_reset = document.querySelector("button.mem-reset");
 const pamiec = document.querySelector("p.schowek");
+const style = document.querySelector("div.style-wybor");
+const style_zaslona = document.querySelector("div.style-zaslona");
+const styl1 = document.querySelector("button.styl1");
+const styl2 = document.querySelector("button.styl2");
+const styl3 = document.querySelector("button.styl3");
+const zbior1 = document.querySelector("div.aplikacja");
+const zbior2 = document.querySelector("div.grid-container");
+const zbior3 = document.querySelector("div.pamiec-container");
+const zbior4 = document.querySelector("div.mem-manag");
+const lang_text1 = document.querySelector("header h1");
+const lang_text2 = document.querySelector("h2:nth-of-type(1)");
+const lang_text3 = document.querySelector("h2:nth-of-type(2)");
+const lang1 = document.querySelector("img.language1");
+const lang2 = document.querySelector("img.language2");
+let historia = document.querySelector("div.historia");
 let zmienna1 = "";
 let zmienna2 = "";
 let zmienna_wynik = "";
@@ -28,7 +42,11 @@ let przycisk = "";
 let activeElement = "";
 let dlug1 = 0;
 let dlug2 = 0;
-// wyświetlanie panelu pamięci
+let lang_type = "pl";
+// wyswietlanie panelu pamieci
+jezyk_zmien2();
+jezyk_zmien1();
+zbior3.style.display = "none";
 memory.addEventListener("click", pamiec_animacja);
 function pamiec_animacja() {
     tempspace = window.getComputedStyle(mem_manager).display;
@@ -38,7 +56,97 @@ function pamiec_animacja() {
         mem_manager.style.display = "flex";
     }
 }
-// funkcja obsługująca wczytywanie wciskanych klawiszy
+// zmiana stylu panelu styli
+style_zaslona.addEventListener("mouseenter", style_zdejmij);
+function style_zdejmij() {
+    let style_lista = style_zaslona.classList;
+    style_lista.toggle("style-zaslona-none");
+    style_zaslona.style.zIndex = "-1";
+}
+
+style.addEventListener("mouseleave", style_zaloz);
+function style_zaloz() {
+    let style_lista = style_zaslona.classList;
+    style_lista.remove("style-zaslona-none");
+    style_zaslona.style.zIndex = "1";
+}
+// zmienianie stylu strony
+styl1.addEventListener("click", dodaj_styl1);
+function dodaj_styl1() {
+    let style_lista1 = zbior1.classList;
+    let style_lista2 = zbior2.classList;
+    let style_lista3 = zbior3.classList;
+    let style_lista4 = zbior4.classList;
+    style_lista1.remove("aplikacja2", "aplikacja3");
+    style_lista2.remove("grid-container2", "grid-container3");
+    style_lista3.remove("pamiec-container2", "pamiec-container3");
+    style_lista4.remove("mem-manag2", "mem-manag3");
+    style_lista1.add("aplikacja");
+    style_lista2.add("grid-container");
+    style_lista3.add("pamiec-container");
+    style_lista4.add("mem-manag");
+}
+
+styl2.addEventListener("click", dodaj_styl2);
+function dodaj_styl2() {
+    let style_lista1 = zbior1.classList;
+    let style_lista2 = zbior2.classList;
+    let style_lista3 = zbior3.classList;
+    let style_lista4 = zbior4.classList;
+    style_lista1.remove("aplikacja1", "aplikacja3");
+    style_lista2.remove("grid-container1", "grid-container3");
+    style_lista3.remove("pamiec-container1", "pamiec-container3");
+    style_lista4.remove("mem-manag1", "mem-manag3");
+    style_lista1.add("aplikacja2");
+    style_lista2.add("grid-container2");
+    style_lista3.add("pamiec-container2");
+    style_lista4.add("mem-manag2");
+}
+
+styl3.addEventListener("click", dodaj_styl3);
+function dodaj_styl3() {
+    let style_lista1 = zbior1.classList;
+    let style_lista2 = zbior2.classList;
+    let style_lista3 = zbior3.classList;
+    let style_lista4 = zbior4.classList;
+    style_lista1.remove("aplikacja1", "aplikacja2");
+    style_lista2.remove("grid-container1", "grid-container2");
+    style_lista3.remove("pamiec-container1", "pamiec-container2");
+    style_lista4.remove("mem-manag1", "mem-manag2");
+    style_lista1.add("aplikacja3");
+    style_lista2.add("grid-container3");
+    style_lista3.add("pamiec-container3");
+    style_lista4.add("mem-manag3");
+}
+// zmienianie jezyka strony
+function his_sprawdz() {
+    zmienna_end = historia.innerText.slice(0, 1);
+    tempspace = isNaN(zmienna_end);
+    return tempspace;
+}
+lang1.addEventListener("click", jezyk_zmien1);
+function jezyk_zmien1() {
+    lang_text1.innerText = "Kalkulator";
+    lang_text2.innerText = "Pamięć";
+    lang_text3.innerText = "Historia działań";
+    if (his_sprawdz() == true) {
+        historia.innerHTML = '<p class="dzialania">Brak ostatnich działań</p>';
+    }
+    lang_type = "pl";
+}
+
+lang2.addEventListener("click", jezyk_zmien2);
+function jezyk_zmien2() {
+    lang_text1.innerText = "Calculator";
+    lang_text2.innerText = "Memory";
+    lang_text3.innerText = "Calculations";
+    if (his_sprawdz() == true) {
+        historia.innerHTML = '<p class="dzialania">No recent actions</p>';
+    }
+    lang_type = "en";
+}
+
+// funkcja obslugujaca wczytywanie wciskanych klawiszy
 document.addEventListener("keydown", klawisz_wcisniety);
 function klawisz_wcisniety(klawisz) {
     przycisk = klawisz.key;
@@ -101,7 +209,7 @@ function klawisz_wcisniety(klawisz) {
     }
 }
 
-// test sprawdzający pętlę dla liczb
+// test sprawdzajacy petle dla liczb
 // numer.forEach(element => {
 //     console.log(element);
 // });
@@ -138,7 +246,7 @@ function cofnij() {
     }
 }
 
-// Funkcje pamięci i historii
+// Funkcje pamieci i historii
 function his_zapisz(x) {
     const element = document.querySelector("p.dzialania");
     if (element != null) {
@@ -151,7 +259,13 @@ function his_zapisz(x) {
 
 his_reset.addEventListener("click", his_resetuj);
 function his_resetuj() {
-    historia.innerHTML = '<p class="dzialania">Brak&nbsp;ostatnich&nbsp;działań </p>';
+    historia = document.querySelector("div.historia");
+    if (lang_type == "pl") {
+        historia.innerHTML = '<p class="dzialania">Brak&nbsp;ostatnich&nbsp;działań</p>';
+    }
+    if (lang_type == "en") {
+        historia.innerHTML = '<p class="dzialania">No&nbsp;recent&nbsp;actions</p>';
+    }
 }
 
 zaladuj.addEventListener("click", mem_zapisz);
@@ -214,7 +328,7 @@ function zbierz_dane(z) {
     dlug2 = zmienna2.toString().length;
 }
 
-// Funkcja pobiera wartości z poszczególnych guzików z klasą 
+// Funkcja pobiera wartosci z poszczegolnych guzikow z klasa 
 // "number" i wpisuje je do kontenera div.item0
 numer.forEach(function(x) {
     zmienna_end = dzialanie.textContent.slice(-1);
@@ -268,8 +382,8 @@ numer.forEach(function(x) {
         }
     }
 });
-// Funkcja pobiera wartości z poszczególnych guzików z klasą 
-// "operator" i dopisuje je do przeniesionej wartości
+// Funkcja pobiera wartosci z poszczegolnych guzikow z klasa 
+// "operator" i dopisuje je do przeniesionej wartosci
 operator.forEach(function(y) {
     y.addEventListener("click", operacja);
     function operacja() {
@@ -281,7 +395,9 @@ operator.forEach(function(y) {
         if (zmienna_end == ".") {
             wynik.innerText = wynik.innerText.slice(0, -1);
         }
-        if (zmienna1 == "" || zmienna1 == 0 ) {
+        if (tempspace == "√" && wynik.textContent == "0") {
+            dzialanie.innerText = "2" + tempspace;
+        } else if (zmienna1 == "" || zmienna1 == 0 ) {
             dzialanie.innerText = wynik.innerText + tempspace;
             zmienna1 = wynik.innerText;
         } else {
@@ -292,7 +408,7 @@ operator.forEach(function(y) {
         wynik.innerText = "0";
     }
 })
-// Funkcja obliczająca
+// Funkcja obliczajaca
 policz.addEventListener("click", oblicz);
 function oblicz() {
     zbierz_dane(dzialanie);
