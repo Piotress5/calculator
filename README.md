@@ -1,11 +1,12 @@
 # Calculator
 > A basic calculator with some other features.
-<!-- > Live demo [_here_](https://www.example.com). -->
+> Live demo [_here_](https://piotress5.github.io/calculator/).
 
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
+* [Setup](#setup)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 
@@ -13,7 +14,7 @@
 ## General Information
 This app doesn't differ much than an average calculator, except that it's just made as mine version.
 Moreover, I was curious about solving math problems with JavaScript and just to test myself in it.
-Methods I used maybe aren't the best, but they are (mostly) working, so that counts for me.
+Solutions I have used maybe aren't the best, but they are (mostly) working, so that counts for me.
 
 
 ## Technologies Used
@@ -37,6 +38,11 @@ Methods I used maybe aren't the best, but they are (mostly) working, so that cou
 - There are 2 hidden Easter Eggs.
 
 
+## Setup
+To run application, visit [_this_](https://piotress5.github.io/calculator/) website or download all files and execute kalkulator.html
+(make sure to include all required files within one catalog).
+
+
 ## Project Status
 Project is: _complete_.
 
@@ -48,5 +54,5 @@ Room for improvement:
 - There are sometimes bugs within Memory section, however most of them are just related with JS decimal conversion and they occurs rather as typos than actual wrong values.
 
 To do:
-- Nothing more planned for now.
+- Adjusting scalability of application.
 
