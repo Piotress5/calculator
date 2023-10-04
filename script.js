@@ -28,11 +28,10 @@ let przycisk = "";
 let activeElement = "";
 let dlug1 = 0;
 let dlug2 = 0;
-
+// wyświetlanie panelu pamięci
 memory.addEventListener("click", pamiec_animacja);
 function pamiec_animacja() {
     tempspace = window.getComputedStyle(mem_manager).display;
-    // console.log(tempspace);
     if (tempspace == "flex") {
         mem_manager.style.display = "none";
     } else if (tempspace == "none") {
@@ -45,6 +44,7 @@ function klawisz_wcisniety(klawisz) {
     przycisk = klawisz.key;
     // console.log(przycisk);
     if (wynik.textContent == "NaN" && przycisk != "c") return;
+    if (wynik.textContent == "Infinity" && przycisk != "c") return;
 
     tempspace = wynik;
     zawiera1 = tempspace.innerText.includes(".");
@@ -112,7 +112,7 @@ function klawisz_wcisniety(klawisz) {
 //     tempspace = "siema";
 //     wynik.innerText = tempspace;
 // }
-
+// czyszczenie ekranu
 allclear.addEventListener("click", wyczysc);
 function wyczysc() {
     tempspace = "0";
@@ -124,10 +124,11 @@ function wyczysc() {
     zawiera1 = false;
     zawiera2 = false;
 }
-
+// backspace
 backspace.addEventListener("click", cofnij);
 function cofnij() {
     if (wynik.textContent == "NaN") wynik.innerText = "0";
+    if (wynik.textContent == "Infinity") wynik.innerText = "0";
     tempspace = wynik;
     if (tempspace.textContent.length > 1 ) {
         wynik.innerText = tempspace.textContent.slice(0, -1);
@@ -155,7 +156,7 @@ function his_resetuj() {
 
 zaladuj.addEventListener("click", mem_zapisz);
 function mem_zapisz() {
-    if (wynik.textContent == "NaN") return;
+    if (wynik.textContent == "NaN" || wynik.textContent == "Infinity") return;
     pamiec.innerText = wynik.innerText;
 }
 
@@ -171,7 +172,7 @@ function mem_resetuj() {
 
 mem_dodaj.addEventListener("click", mem_dodajaca);
 function mem_dodajaca() {
-    if (wynik.textContent == "NaN") return;
+    if (wynik.textContent == "NaN" || wynik.textContent == "Infinity") return;
     zbierz_dane(pamiec);
     if (zawiera3 == true) return;
     if (zawiera1 == true && zawiera2 == true) {
@@ -188,7 +189,7 @@ function mem_dodajaca() {
 
 mem_odejmij.addEventListener("click", mem_odejmujaca);
 function mem_odejmujaca() {
-    if (wynik.textContent == "NaN") return;
+    if (wynik.textContent == "NaN" || wynik.textContent == "Infinity") return;
     zbierz_dane(pamiec);
     if (zawiera3 == true) return;
     tempspace = dlug1 + dlug2;
@@ -198,7 +199,7 @@ function mem_odejmujaca() {
     zmienna2 = zmienna2 / (10 ** tempspace);
     pamiec.innerText = zmienna2;
 }
-
+// funkcja potrzebna przy obliczeniach
 function zbierz_dane(z) {
     zmienna1 = wynik.textContent;
     zmienna2 = z.textContent;
@@ -220,6 +221,7 @@ numer.forEach(function(x) {
     x.addEventListener("click", wpisz);
     function wpisz() {
         if (wynik.textContent == "NaN") return;
+        if (wynik.textContent == "Infinity") return;
         tempspace = x.getAttribute("value");
 
         zawiera1 = wynik.innerText.includes("%");
@@ -266,11 +268,13 @@ numer.forEach(function(x) {
         }
     }
 });
-
+// Funkcja pobiera wartości z poszczególnych guzików z klasą 
+// "operator" i dopisuje je do przeniesionej wartości
 operator.forEach(function(y) {
     y.addEventListener("click", operacja);
     function operacja() {
         if (wynik.textContent == "NaN") return;
+        if (wynik.textContent == "Infinity") return;
         tempspace = y.getAttribute("value");
         zmienna_end = wynik.innerText.slice(-1);
         if (wynik.innerText == "%") return;
@@ -288,7 +292,7 @@ operator.forEach(function(y) {
         wynik.innerText = "0";
     }
 })
-
+// Funkcja obliczająca
 policz.addEventListener("click", oblicz);
 function oblicz() {
     zbierz_dane(dzialanie);
@@ -433,12 +437,12 @@ function oblicz() {
             break;
         case "√":
             if (zawiera3 == true || zawiera4 == true) return;
-            if (zmienna1 == 2) {
-                zmienna_wynik = Math.sqrt(zmienna2);
-            } else if (zmienna1 == 3) {
-                zmienna_wynik = Math.cbrt(zmienna2);
+            if (zmienna2 == 2) {
+                zmienna_wynik = Math.sqrt(zmienna1);
+            } else if (zmienna2 == 3) {
+                zmienna_wynik = Math.cbrt(zmienna1);
             } else {
-                zmienna_wynik = Math.pow(zmienna2, (1 / zmienna1));
+                zmienna_wynik = Math.pow(zmienna1, (1 / zmienna2));
                 zmienna_wynik = parseFloat(zmienna_wynik);
             }
             his_zapisz("√");
