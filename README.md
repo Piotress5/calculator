@@ -14,7 +14,7 @@
 ## General Information
 This app doesn't differ much than an average calculator, except that it's just made as mine version.
 Moreover, I was curious about solving math problems with JavaScript and just to test myself in it.
-Solutions I have used maybe aren't the best, but they are (mostly) working, so that counts for me.
+Solutions I have used maybe aren't the best, but I'm still learning these topics.
 
 
 ## Technologies Used
