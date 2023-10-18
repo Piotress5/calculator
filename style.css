@@ -187,6 +187,7 @@ button.grid-item {
     width: 5em;
     border-radius: 20px;
     border: 4px solid transparent;
+    color: black;
     cursor: pointer;
     display: flex;
     justify-content: center;
