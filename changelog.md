@@ -4,6 +4,7 @@
 - Added responsive web design,
 - Slightly changed website's appearance,
 - Easter Eggs are available directly on page,
+- Theme of page is adjusted to user's system theme,
 - Fixed a bug with overflow of page in certain resolutions.
 
 ========= 1.2 =========
