@@ -150,7 +150,7 @@ div.grid-container {
 
 div.pamiec-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-columns: repeat(1, 1fr); */
     max-width: 50%;
     max-height: 80%;
     padding: 2vw;
@@ -429,6 +429,7 @@ div.panel {
     position: absolute;
     background: linear-gradient(to top right, #2828ca, #3d3dff);
     padding: 1em;
+    -webkit-mask-image: radial-gradient(black 10%, black 40%, transparent 70%);
     mask-image: radial-gradient(black 10%, black 40%, transparent 70%);
 }
 
@@ -463,6 +464,7 @@ div.grid-container2, div.pamiec-container2 {
     box-shadow: 4px 4px 2px 4px #777;
 }
 div.grid-container2 button, div.pamiec-container2 button.his-reset, div.mem-manag2 button {
+    color: black;
     background: linear-gradient(to top right, #ddd, #c0c0c0) padding-box,   /*wnętrze*/
                 linear-gradient(to bottom left, #c0c0c0, #ddd) border-box;  /*ramka*/
     box-shadow: 6px 6px 3px #777;
