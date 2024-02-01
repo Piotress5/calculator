@@ -7,7 +7,7 @@
 header {
     padding: 4em;
     color: white;
-    background-color: #3d3dff;
+    background: linear-gradient(to top right, #2727aa, #3d3dff, #2727aa);
     height: 15vh;
     display: flex;
     align-items: center;
@@ -68,8 +68,7 @@ div.style-zaslona-none {
 
 div.languages-wybor {
     border-top-left-radius: 1em;
-    width: 6em;
-    padding: 0.6em 0.4em 0.3em 0.4em;
+    padding: 0.6em 0.5em 0.3em 0.4em;
 }
 
 .languages-wybor img {
@@ -96,7 +95,7 @@ div.aplikacja {
 }
 
 div.centering {
-    height: 70vh;
+    height: 100%;
     display: flex;
     flex-flow: row-reverse;
     justify-content: center;
@@ -108,14 +107,20 @@ div.centering {
 footer {
     padding: 3em;
     color: white;
-    background-color: #3d3dff;
+    background: linear-gradient(to top right, #2727aa, #3d3dff, #2727aa);
     margin: 0;
     height: 10vh;
+    width: 100%;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-content: center;
     align-items: center;
+    overflow-y: hidden;
+}
+
+div.stopka:nth-child(2), div.stopka:nth-child(3) {
+    z-index: 2;
 }
 
 div.stopka img {
@@ -140,12 +145,12 @@ div.grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
     overflow: clip;
-    margin: 0 0 0 1em;
     padding: 2vw;
 }
 
 div.pamiec-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     max-width: 50%;
     max-height: 80%;
     padding: 2vw;
@@ -169,22 +174,10 @@ div.grid-container, div.pamiec-container {
     box-shadow: 4px 4px 2px 4px #333;
 }
 
-@media screen and (max-width: 950px), (max-height: 500px) {
-    div.grid-container, div.pamiec-container {
-        font-size: 50%;
-    }
-    div.item0 {
-        font-size: 1.5em;
-    }
-    button.grid-item {
-        font-weight: bold;
-    }
-}
-
 button.grid-item {
     text-align: center;
-    height: 5em;
-    width: 5em;
+    height: 8vh;
+    width: 9vh;
     border-radius: 20px;
     border: 4px solid transparent;
     color: black;
@@ -192,10 +185,34 @@ button.grid-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 5vw;
     max-height: 8vh;
+    max-width: 9vh;
     font-size: 1.25em;
     box-shadow: 6px 6px 3px #333;
+}
+
+@media screen and (max-width: 950px), (max-height: 500px) {
+    div.grid-container, div.pamiec-container {
+        font-size: 75%;
+        padding: 15px;
+        gap: 7px;
+    }
+    div.item0 {
+        font-size: 1.5em;
+    }
+    button.grid-item {
+        font-weight: bold;
+        max-width: none;
+        height: 60px;
+        width: 60px;
+        max-height: 75px;
+        max-width: 80px;
+    }
+    div.centering {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .grid-container button {
@@ -254,15 +271,11 @@ button.oblicz:active {
                 linear-gradient(to top, #3b3bf8, #3b3bf8) border-box;
 }
 
-/* buttonitem0.grid-item:focus {
-    outline: none;
-} */
-
 div.item0 {
     padding: 0 1em 0 0;
     grid-column: 1 / span 4;
     background: #ddd;
-    height: 7vh;
+    height: 70px;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -280,17 +293,20 @@ div.item0:hover {
     background: #ddd;
     color: black;
 }
-/* Easter Egg */
-/* div.item0:active {
-    animation: blink 0.5s;
+/* Blink */
+div.item0_2 {
+    animation: blink 0.8s;
     overflow: hidden;
 }
 
 @keyframes blink {
-    0% {border-top: 0px solid black;}
-    50% {border-top: 7vh solid black;}
-    100% {border-top: 0px solid black;}
-} */
+    0%   {border-top: 0px solid black; background: #ddd;}
+    25%  {border-top: 70px solid black; background: #ddd;}
+    25.1%{background: black;}
+    70%  {border-top: 70px solid black; background: black;}
+    70.1%{background: #ddd;}
+    100% {border-top: 0px solid black; background: #ddd;}
+}
 
 div.operacja2 {
     font-size: 0.7em;
@@ -303,9 +319,9 @@ div.operacja1 {
 }
 /* tu zmieniac widocznosc panelu bocznego */
 div.pamiec-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     max-width: 55%;
+    margin-right: 1em;
 }
 
 .pamiec-container button {
@@ -364,6 +380,77 @@ div.mem-manag {
     display: flex;
     flex-wrap: wrap;
     max-width: 15em;
+}
+
+div.stopka:nth-child(1) {
+    position: relative;
+    height: 10vh;
+    width: 100%;
+}
+
+button.hidden {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #1b1bde;
+    border-radius: 20%;
+    background: linear-gradient(to top right, #777, #999)
+}
+
+button.hidden2 {
+    position: fixed;
+    top: -25%;
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 20%;
+    background: linear-gradient(to top right, #777, #999);
+    transition: top 0.6s;
+}
+
+button.hidden:hover, button.hidden2:hover {
+    background: linear-gradient(to top left, #777, #999);
+}
+
+button.hidden:active, button.hidden2:active {
+    background: linear-gradient(to top, #888, #666);
+}
+
+div.panel {
+    height: 100px;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: linear-gradient(to top right, #2828ca, #3d3dff);
+    padding: 1em;
+    mask-image: radial-gradient(black 10%, black 40%, transparent 70%);
+}
+
+@keyframes upadek {
+    0%   {opacity: 1;}
+    99%  {opacity: 0; z-index: 1;}
+    100% {opacity: 0; z-index: -1;}
+}
+
+@media screen and (max-width: 950px), (max-height: 500px) {
+    div.pamiec-container {
+        width: 93%;
+        max-width: 100%;
+    }
+    div.workspace {
+        max-width: none;
+    }
+    div.mem-manag {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: none;
+    }
 }
 
 /* Inne style */
@@ -471,6 +558,3 @@ div.grid-container3 button:last-child:active {
     background: linear-gradient(to top, #2b2bf8, #4b4bf8) padding-box, 
                 linear-gradient(to top, #2b2bf8, #2b2bf8) border-box;
 }
-/* .not-working {
-    background: red !important;
-} */

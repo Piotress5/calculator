@@ -39,8 +39,7 @@ Solutions I have used maybe aren't the best, but I'm still learning these topics
 
 
 ## Setup
-To run application, visit [_this_](https://piotress5.github.io/calculator/) website or download all files and execute kalkulator.html
-(make sure to include all required files within one catalog).
+To run application, visit [_this_](https://piotress5.github.io/calculator/) website or download all files and execute index.html in your browser (make sure to include all required files within one catalog).
 
 
 ## Project Status
@@ -54,5 +53,5 @@ Room for improvement:
 - There are sometimes bugs within Memory section, however most of them are just related with JS decimal conversion and they occurs rather as typos than actual wrong values.
 
 To do:
-- Adjusting scalability of application.
+- No plans for now.
 

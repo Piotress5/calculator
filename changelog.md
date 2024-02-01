@@ -1,5 +1,11 @@
 # Changelog
 
+========= 1.21 ========
+• Added responsive web design,
+• Slightly changed website's appearance,
+• Easter Eggs are available directly on page,
+• Fixed a bug with overflow of page in certain resolutions.
+
 ========= 1.2 =========
 - Added default nth root degree (2),
 - Added styles,

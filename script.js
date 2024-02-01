@@ -19,6 +19,10 @@ const style_zaslona = document.querySelector("div.style-zaslona");
 const styl1 = document.querySelector("button.styl1");
 const styl2 = document.querySelector("button.styl2");
 const styl3 = document.querySelector("button.styl3");
+const panel = document.querySelector("div.panel");
+const przelacznik = document.querySelector("button.hidden");
+const przelacznik2 = document.querySelector("button.hidden2");
+const wyswietlacz = document.querySelector("div.item0");
 const zbior1 = document.querySelector("div.aplikacja");
 const zbior2 = document.querySelector("div.grid-container");
 const zbior3 = document.querySelector("div.pamiec-container");
@@ -43,6 +47,7 @@ let activeElement = "";
 let dlug1 = 0;
 let dlug2 = 0;
 let lang_type = "pl";
+let licznik = 0;
 // wyswietlanie panelu pamieci
 jezyk_zmien2();
 jezyk_zmien1();
@@ -50,10 +55,10 @@ zbior3.style.display = "none";
 memory.addEventListener("click", pamiec_animacja);
 function pamiec_animacja() {
     tempspace = window.getComputedStyle(mem_manager).display;
-    if (tempspace == "flex") {
+    if (tempspace == "grid") {
         mem_manager.style.display = "none";
     } else if (tempspace == "none") {
-        mem_manager.style.display = "flex";
+        mem_manager.style.display = "grid";
     }
 }
 // zmiana stylu panelu styli
@@ -71,6 +76,12 @@ function style_zaloz() {
     style_zaslona.style.zIndex = "1";
 }
 // zmienianie stylu strony
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    dodaj_styl3();
+} else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+    dodaj_styl2();
+}
+
 styl1.addEventListener("click", dodaj_styl1);
 function dodaj_styl1() {
     let style_lista1 = zbior1.classList;
@@ -146,11 +157,41 @@ function jezyk_zmien2() {
     lang_type = "en";
 }
 
+panel.addEventListener("click", falloff);
+function falloff() {
+    panel.style.animation = "upadek 1.5s linear";
+    setTimeout(usun = () => {
+        panel.remove();
+    }, 1400);
+}
+
+przelacznik.addEventListener("click", action1);
+function action1() {
+    let style_listaX = wyswietlacz.classList
+    style_listaX.add("item0_2");
+    setTimeout(przelacz = () => {
+        style_listaX.remove("item0_2");
+    }, 1000);
+    licznik++;
+    console.log("licznik: " + licznik);
+    if (licznik == 10) {
+        przelacznik2.style.top = "10%";
+        setTimeout(wroc = () => {
+            przelacznik2.style.top = "-25%";
+        }, 1000)
+    }
+}
+
+przelacznik2.addEventListener("click", action2);
+function action2() {
+    wynik.innerText = "Hello World!";
+    setTimeout(wyczysc, 1000);
+}
+
 // funkcja obslugujaca wczytywanie wciskanych klawiszy
 document.addEventListener("keydown", klawisz_wcisniety);
 function klawisz_wcisniety(klawisz) {
     przycisk = klawisz.key;
-    // console.log(przycisk);
     if (wynik.textContent == "NaN" && przycisk != "c") return;
     if (wynik.textContent == "Infinity" && przycisk != "c") return;
 
@@ -209,17 +250,6 @@ function klawisz_wcisniety(klawisz) {
     }
 }
 
-// test sprawdzajacy petle dla liczb
-// numer.forEach(element => {
-//     console.log(element);
-// });
-
-//Easter Egg
-// wynik.addEventListener("click", myFunction);
-// function myFunction() {
-//     tempspace = "siema";
-//     wynik.innerText = tempspace;
-// }
 // czyszczenie ekranu
 allclear.addEventListener("click", wyczysc);
 function wyczysc() {
@@ -569,8 +599,3 @@ function oblicz() {
             break;
     }
 }
-
-// function wyswietlWynik() {
-//     wynik.innerHTML = wartosc;
-// }
-
