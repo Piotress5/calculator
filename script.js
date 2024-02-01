@@ -55,10 +55,10 @@ zbior3.style.display = "none";
 memory.addEventListener("click", pamiec_animacja);
 function pamiec_animacja() {
     tempspace = window.getComputedStyle(mem_manager).display;
-    if (tempspace == "grid") {
+    if (tempspace == "flex") {
         mem_manager.style.display = "none";
     } else if (tempspace == "none") {
-        mem_manager.style.display = "grid";
+        mem_manager.style.display = "flex";
     }
 }
 // zmiana stylu panelu styli
