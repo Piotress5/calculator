@@ -442,6 +442,8 @@ div.panel {
     div.pamiec-container {
         width: 93%;
         max-width: 100%;
+        margin-top: 1em;
+        margin-right: 0;
     }
     div.workspace {
         max-width: none;
