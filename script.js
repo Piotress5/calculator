@@ -69,7 +69,7 @@ function pamiec_animacja() {
     } else if (tempspace == "none") {
         mem_manager.style.display = "flex";
         if (text.includes("Chrome") == false && text.includes("Safari") == true) {
-            centering_ios.style.height = "850px";
+            centering_ios.style.height = "950px";
         }
     }
 }
