@@ -143,7 +143,7 @@ div.stopka img:hover {
 
 div.grid-container {
     display: grid;
-    grid-template: auto / auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     overflow: auto;
     padding: 2vw;
 }
@@ -177,8 +177,9 @@ div.grid-container, div.pamiec-container {
 
 button.grid-item {
     text-align: center;
-    height: 8vh;
-    width: 9vh;
+    /* height: 8vh;
+    width: 9vh; */
+    padding: 1em;
     border-radius: 20px;
     border: 4px solid transparent;
     color: black;
@@ -186,6 +187,7 @@ button.grid-item {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 9vh;
     max-height: 8vh;
     max-width: 9vh;
     font-size: 1.25em;
@@ -195,6 +197,7 @@ button.grid-item {
 @media screen and (max-width: 950px), (max-height: 500px) {
     div.grid-container, div.pamiec-container {
         font-size: 75%;
+        padding: 15px;
     }
     div.item0 {
         font-size: 1.5em;
@@ -204,6 +207,7 @@ button.grid-item {
         max-width: none;
         height: 60px;
         width: 60px;
+        min-width: 0;
         max-height: 75px;
         max-width: 80px;
     }
