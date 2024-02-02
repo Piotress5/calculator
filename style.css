@@ -95,7 +95,7 @@ div.aplikacja {
 }
 
 div.centering {
-    height: 700px;
+    height: 100%;
     display: flex;
     flex-flow: row-reverse;
     justify-content: center;

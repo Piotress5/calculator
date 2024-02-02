@@ -27,6 +27,7 @@ const zbior1 = document.querySelector("div.aplikacja");
 const zbior2 = document.querySelector("div.grid-container");
 const zbior3 = document.querySelector("div.pamiec-container");
 const zbior4 = document.querySelector("div.mem-manag");
+const centering_ios = document.querySelector("div.centering");
 const lang_text1 = document.querySelector("header h1");
 const lang_text2 = document.querySelector("h2:nth-of-type(1)");
 const lang_text3 = document.querySelector("h2:nth-of-type(2)");
@@ -48,6 +49,11 @@ let dlug1 = 0;
 let dlug2 = 0;
 let lang_type = "pl";
 let licznik = 0;
+// specjalna funkcja dla przegladarki Safari
+let text = navigator.userAgent;
+if (text.includes("Chrome") == false && text.includes("Safari") == true) {
+    centering_ios.style.height = "600px";
+}
 // wyswietlanie panelu pamieci
 jezyk_zmien2();
 jezyk_zmien1();
@@ -57,8 +63,14 @@ function pamiec_animacja() {
     tempspace = window.getComputedStyle(mem_manager).display;
     if (tempspace == "flex") {
         mem_manager.style.display = "none";
+        if (text.includes("Chrome") == false && text.includes("Safari") == true) {
+            centering_ios.style.height = "600px";
+        }
     } else if (tempspace == "none") {
         mem_manager.style.display = "flex";
+        if (text.includes("Chrome") == false && text.includes("Safari") == true) {
+            centering_ios.style.height = "850px";
+        }
     }
 }
 // zmiana stylu panelu styli
