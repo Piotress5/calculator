@@ -143,8 +143,8 @@ div.stopka img:hover {
 
 div.grid-container {
     display: grid;
-    /* grid-template-columns: auto auto auto auto;
-    overflow: clip; */
+    grid-template: auto / auto auto auto auto;
+    overflow: auto;
     padding: 2vw;
 }
 
