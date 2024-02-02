@@ -149,9 +149,9 @@ div.grid-container {
 }
 
 div.pamiec-container {
+    color: black;
     display: flex;
     flex-direction: column;
-    /* grid-template-columns: repeat(1, 1fr); */
     max-width: 50%;
     max-height: 80%;
     padding: 2vw;
@@ -195,8 +195,8 @@ button.grid-item {
 @media screen and (max-width: 950px), (max-height: 500px) {
     div.grid-container, div.pamiec-container {
         font-size: 75%;
-        padding: 15px;
-        gap: 7px;
+        /* padding: 15px;
+        gap: 7px; */
     }
     div.item0 {
         font-size: 1.5em;
@@ -378,7 +378,6 @@ button.his-reset {
 }
 
 div.mem-manag {
-    color: black;
     display: flex;
     flex-wrap: wrap;
     max-width: 15em;
@@ -443,7 +442,7 @@ div.panel {
 
 @media screen and (max-width: 950px), (max-height: 500px) {
     div.pamiec-container {
-        width: 93%;
+        /* width: 93%; */
         max-width: 100%;
         margin-top: 1em;
         margin-right: 0;
