@@ -1,8 +1,8 @@
 # Changelog
 
 ========= 1.22 ========
-• Added favicon,
-• Default site language has been set to English
+- Added favicon,
+- Default site language has been set to English
 
 ========= 1.21 ========
 - Added responsive web design,
