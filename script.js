@@ -168,6 +168,7 @@ function jezyk_zmien2() {
     }
     lang_type = "en";
 }
+jezyk_zmien2();
 
 panel.addEventListener("click", falloff);
 function falloff() {
